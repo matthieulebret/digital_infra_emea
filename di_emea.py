@@ -14,7 +14,7 @@ import plotly.express as px
 st.set_page_config(layout='wide')
 
 
-st.title("Fiber in EMEA")
+st.title("Fiber and Datacenters in EMEA")
 
 st.header("Deals")
 
