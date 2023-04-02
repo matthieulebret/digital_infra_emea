@@ -14,28 +14,20 @@ import plotly.express as px
 st.set_page_config(layout='wide')
 
 
-st.title("Fiber and Datacenters in EMEA")
+st.title("Digital infrastructure in EMEA")
 
 st.header("Deals")
 
 bigdf = pd.DataFrame()
 
-# for i in range(1,10):
-#     with open('transactions_'+str(i)+'.json',encoding='utf-8') as data_file:
-#         data = json.load(data_file)
-#         data = data['transactions']
-#         df = pd.json_normalize(data)
-#         bigdf = pd.concat([bigdf,df])
-#
-# for i in range(1,5):
-#     with open('di_'+str(i)+'.json',encoding='utf-8') as data_file:
-#         data = json.load(data_file)
-#         data = data['transactions']
-#         df = pd.json_normalize(data)
-#         bigdf = pd.concat([bigdf,df])
-#
-#
-# bigdf.to_excel('digital_infra.xlsx')
+for i in range(1,16):
+    with open('transactions_'+str(i)+'.json',encoding='utf-8') as data_file:
+        data = json.load(data_file)
+        data = data['transactions']
+        df = pd.json_normalize(data)
+        bigdf = pd.concat([bigdf,df])
+
+bigdf.to_excel('digital_infra.xlsx')
 # bigdf
 
 bigdf = pd.read_excel('digital_infra.xlsx')
@@ -100,3 +92,8 @@ def convert_df(df):
 csv = convert_df(bigdf)
 
 st.download_button(label='Download data as CSV',data=csv,file_name='export.csv',mime='text/csv')
+
+### sizevalueEUR: compare deal size of NLB vs deal size of Market (distribution)
+### lendersFundingValues
+### summary.bankdebtsizeEUR -> do a treemap by deal type and lenders
+### 360 deals in Telecommunications since 2001
