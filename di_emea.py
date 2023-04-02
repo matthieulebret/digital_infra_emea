@@ -20,14 +20,14 @@ st.header("Deals")
 
 bigdf = pd.DataFrame()
 
-for i in range(1,16):
-    with open('transactions_'+str(i)+'.json',encoding='utf-8') as data_file:
-        data = json.load(data_file)
-        data = data['transactions']
-        df = pd.json_normalize(data)
-        bigdf = pd.concat([bigdf,df])
+# for i in range(1,16):
+#     with open('transactions_'+str(i)+'.json',encoding='utf-8') as data_file:
+#         data = json.load(data_file)
+#         data = data['transactions']
+#         df = pd.json_normalize(data)
+#         bigdf = pd.concat([bigdf,df])
 
-bigdf.to_excel('digital_infra.xlsx')
+# bigdf.to_excel('digital_infra.xlsx')
 # bigdf
 
 bigdf = pd.read_excel('digital_infra.xlsx')
